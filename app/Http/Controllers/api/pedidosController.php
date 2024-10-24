@@ -24,6 +24,7 @@ class pedidosController extends Controller
 
     public function store(Request $request){
         $Validator = Validator::make($request->all(), [
+            'ID_USUARIO' => 'required|exists:USUARIOS,id',
             'FECHA_PEDIDO' => 'required',
             'MONTO_TOTAL' => 'required',
             'ESTADO_ENVIO' => 'required'
@@ -40,6 +41,7 @@ class pedidosController extends Controller
         }
 
         $pedidos = Pedidos::create([
+            'ID_USUARIO' => $request->ID_USUARIO,
             'FECHA_PEDIDO' => $request->FECHA_PEDIDO,
             'MONTO_TOTAL' => $request->MONTO_TOTAL,
             'ESTADO_ENVIO' => $request->ESTADO_ENVIO,
@@ -118,6 +120,7 @@ class pedidosController extends Controller
         }
 
         $Validator = Validator::make($request->all(), [
+            'ID_USUARIO' => 'required|exists:USUARIOS,id',
             'FECHA_PEDIDO' => 'required',
             'MONTO_TOTAL' => 'required',
             'ESTADO_ENVIO' => 'required'
@@ -133,6 +136,7 @@ class pedidosController extends Controller
             return response()->json($Data, 400);
         }
 
+        $pedidos->ID_USUARIO = $request->ID_USUARIO;
         $pedidos->FECHA_PEDIDO = $request->FECHA_PEDIDO;
         $pedidos->MONTO_TOTAL = $request->MONTO_TOTAL;
         $pedidos->ESTADO_ENVIO = $request->ESTADO_ENVIO;

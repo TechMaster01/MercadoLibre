@@ -18,6 +18,7 @@ return new class extends Migration
         $table->decimal('PRECIO', 10, 2)->nullable();
         $table->integer('STOCK')->default(0);
         $table->foreignId('ID_VENDEDOR')->constrained('USUARIOS');
+        $table->timestamps();
     });
 }
 

@@ -9,7 +9,7 @@ class Historial_Notificaciones extends Model
 {
     use HasFactory;
 
-    protected $table = 'pedidos';
+    protected $table = 'HISTORIAL_NOTIFICACIONES';
 
     protected $fillable = [
         'ID_NOTIFICACION',

@@ -15,7 +15,8 @@ return new class extends Migration
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->string('TIPO_NOTIFICACION', 50)->nullable();
-        $table->timestamp('FECHA_ENVIO')->default(DB::raw('CURRENT_TIMESTAMP'));
+        $table->timestamp('FECHA_ENVIO')->useCurrent();
+        $table->timestamps();
     });
 }
 

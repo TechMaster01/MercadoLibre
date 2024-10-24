@@ -16,6 +16,7 @@ return new class extends Migration
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->text('DISPOSITIVOS_LOGUEADOS')->nullable();
         $table->text('PROBLEMA_REPORTADO')->nullable();
+        $table->timestamps();
     });
 }
 

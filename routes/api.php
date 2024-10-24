@@ -13,16 +13,6 @@ use App\Http\Controllers\api\usuariosController;
     return $request->user();
 })->middleware('auth:sanctum');*/
 
-Route::get('/clientes', [clientesController::class, 'index']);
-
-Route::get('/clientes/{id}', [clientesController::class, 'show']);
-
-Route::post('/clientes', [clientesController::class, 'store']);
-
-Route::put('/clientes/{id}', [clientesController::class, 'update']);
-
-Route::delete('/clientes/{id}', [clientesController::class, 'destroy']);
-
 //Rutas para productos
 Route::get('/productos', [productosController::class, 'index']);
 
@@ -52,7 +42,7 @@ Route::get('/pedidos/{id}', [pedidosController::class, 'show']);
 
 Route::post('/pedidos', [pedidosController::class, 'store']);
 
-Route::put('/´pedidos/{id}', [pedidosController::class, 'update']);
+Route::put('/pedidos/{id}', [pedidosController::class, 'update']);
 
 Route::delete('/pedidos/{id}', [pedidosController::class, 'destroy']);
 

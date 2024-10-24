@@ -18,6 +18,7 @@ return new class extends Migration
         $table->string('CIUDAD', 100)->nullable();
         $table->string('ESTADO', 100)->nullable();
         $table->string('CODIGO_POSTAL', 10)->nullable();
+        $table->timestamps();
     });
 }
 

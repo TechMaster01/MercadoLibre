@@ -10,7 +10,7 @@ class Pedidos extends Model
     use HasFactory;
 
 
-    protected $table = 'pedidos';
+    protected $table = 'PEDIDOS';
 
     protected $fillable = [
         'ID_USUARIO',
