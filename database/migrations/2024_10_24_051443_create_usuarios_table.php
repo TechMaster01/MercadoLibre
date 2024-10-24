@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-    {
+{
     Schema::create('USUARIOS', function (Blueprint $table) {
         $table->id(); 
         $table->string('NOMBRE_USUARIO', 100);
@@ -21,11 +21,11 @@ return new class extends Migration
         $table->boolean('ACTIVO')->default(true);
         $table->timestamps();
     });
-    }
+}
 
 public function down()
-    {
+{
     Schema::dropIfExists('USUARIOS');
-    }
+}
 
 };

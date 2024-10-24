@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class UsuariosTableSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class UsuariosTableSeeder extends Seeder
                 'NOMBRE_USUARIO' => 'usuario1',
                 'EMAIL' => 'usuario1@example.com',
                 'TELEFONO' => '5551234567',
-                'CONTRASENA' => bcrypt('password1'), // Asegúrate de encriptar la contraseña
+                'CONTRASENA' => bcrypt('password1'),
                 'IMAGEN_PERFIL' => null,
                 'ACTIVO' => true,
                 'created_at' => now(),
@@ -31,7 +30,6 @@ class UsuariosTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // Agrega más usuarios si lo deseas
         ]);
     }
 }

@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('FAVORITOS', function (Blueprint $table) {
+    Schema::create('PAGO_PEDIDO', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('ID_PRODUCTO')->constrained('PRODUCTOS');
-        $table->timestamps();
+        $table->foreignId('ID_PEDIDO')->constrained('PEDIDOS');
+        $table->string('METODO_PAGO', 50)->nullable();
+        $table->decimal('MONTO_PAGADO', 10, 2);
     });
 }
 
 public function down()
 {
-    Schema::dropIfExists('FAVORITOS');
+    Schema::dropIfExists('PAGO_PEDIDO');
 }
 
 };

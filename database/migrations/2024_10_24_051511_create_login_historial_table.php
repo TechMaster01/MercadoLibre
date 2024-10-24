@@ -14,10 +14,9 @@ return new class extends Migration
     Schema::create('LOGIN_HISTORIAL', function (Blueprint $table) {
         $table->id('ID_LOGIN');
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->timestamp('FECHA_HORA')->useCurrent();
+        $table->timestamp('FECHA_HORA')->default(DB::raw('CURRENT_TIMESTAMP'));
         $table->string('METODO_AUTENTICACION', 50)->nullable();
         $table->string('DIRECCION_IP', 45)->nullable();
-        $table->timestamps();
     });
 }
 

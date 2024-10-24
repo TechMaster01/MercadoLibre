@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('DIRECCIONES_USUARIO', function (Blueprint $table) {
+    Schema::create('PEDIDOS', function (Blueprint $table) {
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->string('DIRECCION', 255)->nullable();
-        $table->string('CIUDAD', 100)->nullable();
-        $table->string('ESTADO', 100)->nullable();
-        $table->string('CODIGO_POSTAL', 10)->nullable();
-        $table->timestamps();
+        $table->timestamp('FECHA_PEDIDO')->default(DB::raw('CURRENT_TIMESTAMP'));
+        $table->decimal('MONTO_TOTAL', 10, 2);
+        $table->string('ESTADO_ENVIO', 100)->nullable();
     });
 }
 
 public function down()
 {
-    Schema::dropIfExists('DIRECCIONES_USUARIO');
+    Schema::dropIfExists('PEDIDOS');
 }
 
 };

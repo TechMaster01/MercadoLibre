@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('SEGURIDAD_USUARIO', function (Blueprint $table) {
+    Schema::create('DIRECCIONES_USUARIO', function (Blueprint $table) {
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->text('DISPOSITIVOS_LOGUEADOS')->nullable();
-        $table->text('PROBLEMA_REPORTADO')->nullable();
-        $table->timestamps();
+        $table->string('DIRECCION', 255)->nullable();
+        $table->string('CIUDAD', 100)->nullable();
+        $table->string('ESTADO', 100)->nullable();
+        $table->string('CODIGO_POSTAL', 10)->nullable();
     });
 }
 
 public function down()
 {
-    Schema::dropIfExists('SEGURIDAD_USUARIO');
+    Schema::dropIfExists('DIRECCIONES_USUARIO');
 }
 
 };

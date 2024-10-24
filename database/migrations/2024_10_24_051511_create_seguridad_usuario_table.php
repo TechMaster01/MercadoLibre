@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('CATEGORIAS', function (Blueprint $table) {
+    Schema::create('SEGURIDAD_USUARIO', function (Blueprint $table) {
         $table->id();
-        $table->string('NOMBRE_CATEGORIA', 100);
-        $table->timestamps();
+        $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
+        $table->text('DISPOSITIVOS_LOGUEADOS')->nullable();
+        $table->text('PROBLEMA_REPORTADO')->nullable();
     });
 }
 
 public function down()
 {
-    Schema::dropIfExists('CATEGORIAS');
+    Schema::dropIfExists('SEGURIDAD_USUARIO');
 }
 
 };

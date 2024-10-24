@@ -14,7 +14,6 @@ return new class extends Migration
     Schema::create('CARRITO_COMPRAS', function (Blueprint $table) {
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->timestamps();
     });
 }
 

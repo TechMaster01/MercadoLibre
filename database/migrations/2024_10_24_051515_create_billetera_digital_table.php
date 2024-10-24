@@ -11,19 +11,18 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('PEDIDOS', function (Blueprint $table) {
+    Schema::create('BILLETERA_DIGITAL', function (Blueprint $table) {
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->timestamp('FECHA_PEDIDO')->useCurrent();
-        $table->decimal('MONTO_TOTAL', 10, 2);
-        $table->string('ESTADO_ENVIO', 100)->nullable();
-        $table->timestamps();
+        $table->decimal('SALDO', 10, 2)->default(0.00);
+        $table->string('TIPO_MONEDA', 10)->default('MXN');
+        $table->string('METODO_PAGO', 50)->nullable();
     });
 }
 
 public function down()
 {
-    Schema::dropIfExists('PEDIDOS');
+    Schema::dropIfExists('BILLETERA_DIGITAL');
 }
 
 };
