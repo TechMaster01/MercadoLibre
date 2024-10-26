@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class usuariosController extends Controller
@@ -46,7 +47,7 @@ class usuariosController extends Controller
             'NOMBRE_USUARIO' => $request->NOMBRE_USUARIO,
             'EMAIL' => $request->EMAIL,
             'TELEFONO' => $request->TELEFONO,
-            'CONTRASENA' => $request->CONTRASENA,
+            'CONTRASENA' => hash('sha256', $request->CONTRASENA),
             'IMAGEN_PERFIL' => $request->IMAGEN_PERFIL,
             'ACTIVO' => $request->ACTIVO
         ]);
