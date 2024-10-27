@@ -11,8 +11,8 @@ class CarritoProductosTableSeeder extends Seeder
     {
         DB::table('CARRITO_PRODUCTOS')->insert([
             [
-                'ID' => 1, // Asegúrate de que este ID exista en la tabla CARRITO_COMPRAS
-                'ID_PRODUCTO' => 1, // Asegúrate de que este ID exista en la tabla PRODUCTOS
+                'ID' => 1, 
+                'ID_PRODUCTO' => 1, 
                 'CANTIDAD' => 2,
             ],
             [

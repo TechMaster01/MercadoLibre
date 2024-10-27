@@ -11,7 +11,7 @@ class PagoPedidoTableSeeder extends Seeder
     {
         DB::table('PAGO_PEDIDO')->insert([
             [
-                'ID_PEDIDO' => 1, // Asegúrate de que este ID exista en la tabla PEDIDOS
+                'ID_PEDIDO' => 1, 
                 'METODO_PAGO' => 'Tarjeta de Crédito',
                 'MONTO_PAGADO' => 300.00,
             ],

@@ -10,18 +10,18 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('PERFIL_USUARIO', function (Blueprint $table) {
+    {
+    Schema::create('DATOS_FISCALES', function (Blueprint $table) {
         $table->foreignId('ID_USUARIO')->primary()->constrained('USUARIOS');
-        $table->string('NOMBRE_COMPLETO', 150)->nullable();
-        $table->date('FECHA_NACIMIENTO')->nullable();
-        $table->string('SEXO', 10)->nullable();
+        $table->string('RFC', 13)->nullable();
+        $table->string('DIRECCION_FISCAL', 255)->nullable();
+        $table->text('BENEFICIARIOS')->nullable();
     });
-}
+    }
 
 public function down()
 {
-    Schema::dropIfExists('PERFIL_USUARIO');
+    Schema::dropIfExists('DATOS_FISCALES');
 }
 
 };

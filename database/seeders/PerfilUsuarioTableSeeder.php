@@ -4,23 +4,39 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
-class PerfilUsuarioTableSeeder extends Seeder
+class UsuariosTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('PERFIL_USUARIO')->insert([
+        DB::table('USUARIOS')->insert([
             [
-                'ID_USUARIO' => 1, // Asegúrate de que este ID exista en la tabla USUARIOS
-                'NOMBRE_COMPLETO' => 'Usuario Uno',
-                'FECHA_NACIMIENTO' => '1990-01-01',
+                'NOMBRE_USUARIO' => 'usuario1',
+                'APELLIDO' => 'apellido1',
+                'EMAIL' => 'usuario1@example.com',
+                'TELEFONO' => '5551234567',
+                'CONTRASENA' => Hash::make('password1'),
+                'IMAGEN_PERFIL' => null,
+                'ACTIVO' => true,
+                'FECHA_NACIMIENTO' => Carbon::create('1990', '01', '01'),
                 'SEXO' => 'Masculino',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'ID_USUARIO' => 2,
-                'NOMBRE_COMPLETO' => 'Usuario Dos',
-                'FECHA_NACIMIENTO' => '1995-02-02',
+                'NOMBRE_USUARIO' => 'usuario2',
+                'APELLIDO' => 'apellido2',
+                'EMAIL' => 'usuario2@example.com',
+                'TELEFONO' => '5557654321',
+                'CONTRASENA' => Hash::make('password2'),
+                'IMAGEN_PERFIL' => null,
+                'ACTIVO' => true,
+                'FECHA_NACIMIENTO' => Carbon::create('1992', '05', '10'),
                 'SEXO' => 'Femenino',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }
