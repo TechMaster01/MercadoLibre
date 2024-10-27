@@ -16,10 +16,6 @@ class Usuarios extends Model
         'APELLIDO',
         'EMAIL',
         'TELEFONO',
-        'CONTRASENA',
-        'IMAGEN_PERFIL',
-        'ACTIVO',
-        'FECHA_NACIMIENTO',
-        'SEXO'
+        'CONTRASENA'
     ];
 }
