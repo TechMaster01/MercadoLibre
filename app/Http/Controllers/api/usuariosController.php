@@ -24,7 +24,7 @@ class usuariosController extends Controller
 
     public function store(Request $request){
         $Validator = Validator::make($request->all(), [
-            'NOMBRE_USUARIO' => 'required|max:255',
+            'NOMBRES' => 'required|max:255',
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required',
@@ -45,7 +45,7 @@ class usuariosController extends Controller
         }
 
         $usuarios = Usuarios::create([
-            'NOMBRE_USUARIO' => $request->NOMBRE_USUARIO,
+            'NOMBRES' => $request->NOMBRES,
             'APELLIDO' => $request->APELLIDO,
             'EMAIL' => $request->EMAIL,
             'TELEFONO' => $request->TELEFONO,
@@ -129,7 +129,7 @@ class usuariosController extends Controller
         }
     
         $validator = Validator::make($request->all(), [
-            'NOMBRE_USUARIO' => 'required|max:255',
+            'NOMBRES' => 'required|max:255',
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required', // Si quieres que la contraseña sea obligatoria
@@ -149,7 +149,7 @@ class usuariosController extends Controller
             return response()->json($data, 400);
         }
     
-        $usuarios->NOMBRE_USUARIO = $request->NOMBRE_USUARIO;
+        $usuarios->NOMBRES = $request->NOMBRES;
         $usuarios->EMAIL = $request->EMAIL;
         $usuarios->TELEFONO = $request->TELEFONO;
         $usuarios->CONTRASENA = hash('sha256', $request->CONTRASENA); // Hash de la contraseña
