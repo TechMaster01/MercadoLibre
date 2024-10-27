@@ -5,7 +5,6 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class usuariosController extends Controller
@@ -30,7 +29,9 @@ class usuariosController extends Controller
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required',
             'IMAGEN_PERFIL',
-            'ACTIVO' => 'required|boolean'
+            'ACTIVO' => 'required|boolean',
+            'FECHA_NACIMIENTO' => 'required',
+            'SEXO' => 'required'
         ]);
 
         if($Validator->fails()){
@@ -45,11 +46,14 @@ class usuariosController extends Controller
 
         $usuarios = Usuarios::create([
             'NOMBRE_USUARIO' => $request->NOMBRE_USUARIO,
+            'APELLIDO' => $request->APELLIDO,
             'EMAIL' => $request->EMAIL,
             'TELEFONO' => $request->TELEFONO,
             'CONTRASENA' => hash('sha256', $request->CONTRASENA),
             'IMAGEN_PERFIL' => $request->IMAGEN_PERFIL,
-            'ACTIVO' => $request->ACTIVO
+            'ACTIVO' => $request->ACTIVO,
+            'FECHA_NACIMIENTO' => $request->FECHA_NACIMIENTO,
+            'SEXO' => $request->SEXO
         ]);
 
         if(!$usuarios){
@@ -130,7 +134,9 @@ class usuariosController extends Controller
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required', // Si quieres que la contraseña sea obligatoria
             'IMAGEN_PERFIL',
-            'ACTIVO' => 'required|boolean' // Asegúrate de que ACTIVO sea booleano
+            'ACTIVO' => 'required|boolean', // Asegúrate de que ACTIVO sea booleano
+            'FECHA_NACIMIENTO' => 'required',
+            'SEXO' => 'required'
         ]);
     
         if ($validator->fails()) {
@@ -149,6 +155,8 @@ class usuariosController extends Controller
         $usuarios->CONTRASENA = hash('sha256', $request->CONTRASENA); // Hash de la contraseña
         $usuarios->IMAGEN_PERFIL = $request->IMAGEN_PERFIL;
         $usuarios->ACTIVO = $request->ACTIVO;
+        $usuarios->FECHA_NACIMIENTO = $request->FECHA_NACIMIENTO;
+        $usuarios->SEXO = $request->SEXO;
     
         $usuarios->save();
     
