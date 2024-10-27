@@ -29,7 +29,7 @@ class usuariosController extends Controller
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required',
-            'IMAGEN_PERFIL' => 'required',
+            'IMAGEN_PERFIL',
             'ACTIVO' => 'required|boolean'
         ]);
 
@@ -129,7 +129,7 @@ class usuariosController extends Controller
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required', // Si quieres que la contraseña sea obligatoria
-            'IMAGEN_PERFIL' => 'required',
+            'IMAGEN_PERFIL',
             'ACTIVO' => 'required|boolean' // Asegúrate de que ACTIVO sea booleano
         ]);
     
