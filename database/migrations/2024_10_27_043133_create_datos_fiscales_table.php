@@ -16,6 +16,7 @@ return new class extends Migration
         $table->string('RFC', 13)->nullable();
         $table->string('DIRECCION_FISCAL', 255)->nullable();
         $table->text('BENEFICIARIOS')->nullable();
+        $table->timestamps();
     });
     }
 

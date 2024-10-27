@@ -16,6 +16,7 @@ return new class extends Migration
         $table->foreignId('ID_PEDIDO')->constrained('PEDIDOS');
         $table->string('METODO_PAGO', 50)->nullable();
         $table->decimal('MONTO_PAGADO', 10, 2);
+        $table->timestamps();
     });
 }
 
