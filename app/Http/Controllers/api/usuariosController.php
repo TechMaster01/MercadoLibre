@@ -43,7 +43,7 @@ class usuariosController extends Controller
 
         $usuarios = Usuarios::create([
             'NOMBRES' => $request->NOMBRES,
-            'APELLIDOS' => $request->APELLIDO,
+            'APELLIDOS' => $request->APELLIDOS,
             'EMAIL' => $request->EMAIL,
             'TELEFONO' => $request->TELEFONO,
             'CONTRASENA' => hash('sha256', $request->CONTRASENA)
