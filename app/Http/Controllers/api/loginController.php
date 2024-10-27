@@ -6,10 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usuarios;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class loginController extends Controller
 {
     //
+    public function index(){
+        throw new NotFoundHttpException();
+    }
+
     public function store(Request $request) {
         $validator = Validator::make($request->all(), [
             'EMAIL' => 'required|email',
