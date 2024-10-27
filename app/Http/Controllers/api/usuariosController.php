@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class usuariosController extends Controller
@@ -28,7 +29,7 @@ class usuariosController extends Controller
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
             'CONTRASENA' => 'required',
-            'IMAGEN_PERFIL' => 'required',
+            'IMAGEN_PERFIL',
             'ACTIVO' => 'required|boolean'
         ]);
 
@@ -46,7 +47,7 @@ class usuariosController extends Controller
             'NOMBRE_USUARIO' => $request->NOMBRE_USUARIO,
             'EMAIL' => $request->EMAIL,
             'TELEFONO' => $request->TELEFONO,
-            'CONTRASENA' => $request->CONTRASENA,
+            'CONTRASENA' => hash('sha256', $request->CONTRASENA),
             'IMAGEN_PERFIL' => $request->IMAGEN_PERFIL,
             'ACTIVO' => $request->ACTIVO
         ]);
@@ -111,52 +112,52 @@ class usuariosController extends Controller
         return response()->json($Data, 200);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id) {
         $usuarios = Usuarios::find($id);
-
-        if(!$usuarios){
-            $Data = [
+    
+        if (!$usuarios) {
+            $data = [
                 'message' => 'Usuario no encontrado',
                 'status' => 404
             ];
-
-            return response()->json($Data, 404);
+    
+            return response()->json($data, 404);
         }
-
-        $Validator = Validator::make($request->all(), [
+    
+        $validator = Validator::make($request->all(), [
             'NOMBRE_USUARIO' => 'required|max:255',
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
-            'CONTRASENA' => 'required',
-            'IMAGEN_PERFIL' => 'required',
-            'ACTIVO' => 'required'
+            'CONTRASENA' => 'required', // Si quieres que la contraseña sea obligatoria
+            'IMAGEN_PERFIL',
+            'ACTIVO' => 'required|boolean' // Asegúrate de que ACTIVO sea booleano
         ]);
-
-        if($Validator->fails()){
-            $Data = [
+    
+        if ($validator->fails()) {
+            $data = [
                 'message' => 'Error en la validación de los datos',
-                'Errors' => $Validator->errors(),
+                'errors' => $validator->errors(),
                 'status' => 400
             ];
-
-            return response()->json($Data, 400);
+    
+            return response()->json($data, 400);
         }
-
+    
         $usuarios->NOMBRE_USUARIO = $request->NOMBRE_USUARIO;
         $usuarios->EMAIL = $request->EMAIL;
         $usuarios->TELEFONO = $request->TELEFONO;
-        $usuarios->CONTRASENA = $request->CONTRASENA;
+        $usuarios->CONTRASENA = hash('sha256', $request->CONTRASENA); // Hash de la contraseña
         $usuarios->IMAGEN_PERFIL = $request->IMAGEN_PERFIL;
         $usuarios->ACTIVO = $request->ACTIVO;
-
+    
         $usuarios->save();
-
-        $Data = [
+    
+        $data = [
             'message' => 'Usuario actualizado',
             'usuario' => $usuarios,
             'status' => 200
         ];
-
-        return response()->json($Data, 200);
-    }
+    
+        return response()->json($data, 200);
+    }    
 }

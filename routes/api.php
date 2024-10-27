@@ -4,10 +4,10 @@ use App\Http\Controllers\api\categoriasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\api\clientesController;
 use App\Http\Controllers\api\pedidosController;
 use App\Http\Controllers\api\productosController;
 use App\Http\Controllers\api\usuariosController;
+use App\Http\Controllers\api\loginController;
 
 /*Route::get('/user', function (Request $request) {
     return $request->user();
@@ -56,3 +56,6 @@ Route::post('/categorias', [categoriasController::class, 'store']);
 Route::put('/categorias/{id}', [categoriasController::class, 'update']);
 
 Route::delete('/categorias/{id}', [categoriasController::class, 'destroy']);
+
+//Ruta para el login
+Route::post('/login', [loginController::class, 'store']);
