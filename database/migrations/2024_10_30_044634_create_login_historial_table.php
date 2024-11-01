@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
+    {
     Schema::create('LOGIN_HISTORIAL', function (Blueprint $table) {
         $table->id('ID_LOGIN');
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
@@ -19,11 +19,13 @@ return new class extends Migration
         $table->string('DIRECCION_IP', 45)->nullable();
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('LOGIN_HISTORIAL');
-}
-
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('LOGIN_HISTORIAL');
+    }
 };

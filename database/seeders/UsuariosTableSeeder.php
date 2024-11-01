@@ -4,32 +4,29 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Faker\Factory as Faker;
 
 class UsuariosTableSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
-        DB::table('USUARIOS')->insert([
-            [
-                'NOMBRE_USUARIO' => 'usuario1',
-                'EMAIL' => 'usuario1@example.com',
-                'TELEFONO' => '5551234567',
-                'CONTRASENA' => hash('sha256', 'password1'),
-                'IMAGEN_PERFIL' => null,
-                'ACTIVO' => true,
+        $faker = Faker::create('es_ES'); 
+
+        for ($i = 0; $i < 50; $i++) {
+            DB::table('USUARIOS')->insert([
+                'NOMBRE_USUARIO' => $faker->userName,
+                'EMAIL' => $faker->unique()->safeEmail,
+                'TELEFONO' => $faker->optional()->phoneNumber,
+                'CONTRASEÑA' => Hash::make('Mercado libre prueba'), 
                 'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'NOMBRE_USUARIO' => 'usuario2',
-                'EMAIL' => 'usuario2@example.com',
-                'TELEFONO' => '5557654321',
-                'CONTRASENA' => hash('sha256', 'password2'),
-                'IMAGEN_PERFIL' => null,
-                'ACTIVO' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+                'updated_at' => now()
+            ]);
+        }
     }
 }

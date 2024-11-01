@@ -10,21 +10,24 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
+    { 
     Schema::create('DIRECCIONES_USUARIO', function (Blueprint $table) {
-        $table->id();
+        $table->id('ID');
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->string('DIRECCION', 255)->nullable();
-        $table->string('CIUDAD', 100)->nullable();
-        $table->string('ESTADO', 100)->nullable();
-        $table->string('CODIGO_POSTAL', 10)->nullable();
+        $table->string('DIRECCION', 255);
+        $table->string('CIUDAD', 100);
+        $table->string('ESTADO', 100);
+        $table->string('CODIGO_POSTAL', 10);
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('DIRECCIONES_USUARIO');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('DIRECCIONES_USUARIO');
+    }
 };
