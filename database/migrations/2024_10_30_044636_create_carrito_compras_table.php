@@ -10,17 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
+    {
     Schema::create('CARRITO_COMPRAS', function (Blueprint $table) {
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('CARRITO_COMPRAS');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('CARRITO_COMPRAS');
+    }
 };

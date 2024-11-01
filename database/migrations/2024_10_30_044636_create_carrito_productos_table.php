@@ -19,11 +19,12 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-    
-    public function down()
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
         Schema::dropIfExists('CARRITO_PRODUCTOS');
     }
-    
-
 };

@@ -10,19 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('PAGO_PEDIDO', function (Blueprint $table) {
+    {
+    Schema::create('CATEGORIAS', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('ID_PEDIDO')->constrained('PEDIDOS');
-        $table->string('METODO_PAGO', 50)->nullable();
-        $table->decimal('MONTO_PAGADO', 10, 2);
+        $table->string('NOMBRE_CATEGORIA', 100);
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('PAGO_PEDIDO');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('CATEGORIAS');
+    }
 };

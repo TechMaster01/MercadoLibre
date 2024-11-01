@@ -10,10 +10,11 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
+    { 
     Schema::create('DIRECCIONES_USUARIO', function (Blueprint $table) {
-        $table->id();
+        $table->id('ID');
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
+<<<<<<< HEAD:database/migrations/2024_10_27_043133_create_direcciones_usuario_table.php
         $table->string('NOMBRE_COMPLETO', 255);
         $table->string('CODIGO_POSTAL', 10);
         $table->string('ESTADO', 100);
@@ -26,13 +27,22 @@ return new class extends Migration
         $table->string('CALLE_2', 100);
         $table->string('CONTACTO', 10);
         $table->string('INDICACIONES', 255)->nullable();
+=======
+        $table->string('DIRECCION', 255);
+        $table->string('CIUDAD', 100);
+        $table->string('ESTADO', 100);
+        $table->string('CODIGO_POSTAL', 10);
+>>>>>>> d001afa40ca5c200937307fc1098791f64b1ecdd:database/migrations/2024_10_30_044635_create_direcciones_usuario_table.php
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('DIRECCIONES_USUARIO');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('DIRECCIONES_USUARIO');
+    }
 };

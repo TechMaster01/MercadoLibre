@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
+    {
     Schema::create('PERFIL_USUARIO', function (Blueprint $table) {
         $table->foreignId('ID_USUARIO')->primary()->constrained('USUARIOS');
         $table->string('NOMBRE_USUARIO', 150)->nullable();
@@ -20,11 +20,13 @@ return new class extends Migration
         $table->string('SEXO', 10)->nullable(); 
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('PERFIL_USUARIO');
-}
-
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('PERFIL_USUARIO');
+    }
 };

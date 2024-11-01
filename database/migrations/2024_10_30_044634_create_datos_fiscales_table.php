@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
     Schema::create('DATOS_FISCALES', function (Blueprint $table) {
-        $table->foreignId('ID_USUARIO')->primary()->constrained('USUARIOS');
+        $table->foreignId('ID_USUARIO')->constrained('USUARIOS')->primary();
         $table->string('RFC', 13)->nullable();
         $table->string('DIRECCION_FISCAL', 255)->nullable();
         $table->text('BENEFICIARIOS')->nullable();
@@ -20,9 +20,12 @@ return new class extends Migration
     });
     }
 
-public function down()
-{
-    Schema::dropIfExists('DATOS_FISCALES');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('DATOS_FISCALES');
+    }
 };

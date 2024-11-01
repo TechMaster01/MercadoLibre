@@ -10,19 +10,22 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
+    {
     Schema::create('HISTORIAL_NOTIFICACIONES', function (Blueprint $table) {
-        $table->id();
+        $table->id('ID');
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->string('TIPO_NOTIFICACION', 50)->nullable();
-        $table->timestamp('FECHA_ENVIO')->useCurrent();
+        $table->string('TIPO_NOTIFICACION', 50);
+        $table->timestamp('FECHA_ENVIO')->default(DB::raw('CURRENT_TIMESTAMP'));
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('HISTORIAL_NOTIFICACIONES');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('HISTORIAL_NOTIFICACIONES');
+    }
 };

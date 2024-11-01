@@ -10,19 +10,23 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('SEGURIDAD_USUARIO', function (Blueprint $table) {
+    {
+    Schema::create('PEDIDOS', function (Blueprint $table) {
         $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
-        $table->text('DISPOSITIVOS_LOGUEADOS')->nullable();
-        $table->text('PROBLEMA_REPORTADO')->nullable();
+        $table->timestamp('FECHA_PEDIDO')->useCurrent();
+        $table->decimal('MONTO_TOTAL', 10, 2);
+        $table->string('ESTADO_ENVIO', 100)->nullable();
         $table->timestamps();
     });
-}
+    }
 
-public function down()
-{
-    Schema::dropIfExists('SEGURIDAD_USUARIO');
-}
 
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('PEDIDOS');
+    }
 };
