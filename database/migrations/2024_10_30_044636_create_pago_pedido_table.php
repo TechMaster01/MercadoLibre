@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
     Schema::create('PAGO_PEDIDO', function (Blueprint $table) {
-        $table->id('ID');
+        $table->id();
         $table->foreignId('ID_PEDIDO')->constrained('PEDIDOS');
         $table->string('METODO_PAGO', 50);
         $table->decimal('MONTO_PAGADO', 10, 2);

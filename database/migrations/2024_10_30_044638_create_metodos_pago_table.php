@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {  
     Schema::create('METODOS_PAGO', function (Blueprint $table) {
-        $table->id('ID');
+        $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->string('TIPO_METODO', 50);
         $table->string('NOMBRE_TITULAR', 100);
@@ -23,7 +23,7 @@ return new class extends Migration
         $table->string('CORREO_PAYPAL', 100)->nullable();
         $table->string('MONEDA', 10)->default('MXN');
         $table->boolean('ACTIVO')->default(true);
-        $table->timestamp('FECHA_CREACION')->default(DB::raw('CURRENT_TIMESTAMP'));
+        $table->timestamp('FECHA_CREACION')->useCurrent();
         $table->timestamp('FECHA_ACTUALIZACION')->nullable();
         $table->timestamps();
     });

@@ -12,10 +12,10 @@ return new class extends Migration
     public function up()
     {
     Schema::create('HISTORIAL_NOTIFICACIONES', function (Blueprint $table) {
-        $table->id('ID');
+        $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->string('TIPO_NOTIFICACION', 50);
-        $table->timestamp('FECHA_ENVIO')->default(DB::raw('CURRENT_TIMESTAMP'));
+        $table->timestamp('FECHA_ENVIO')->useCurrent();
         $table->timestamps();
     });
     }

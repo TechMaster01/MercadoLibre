@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
     Schema::create('SEGURIDAD_USUARIO', function (Blueprint $table) {
-        $table->id('ID');
+        $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->text('DISPOSITIVOS_LOGUEADOS')->nullable();
         $table->text('PROBLEMA_REPORTADO')->nullable();

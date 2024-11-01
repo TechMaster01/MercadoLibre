@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
     Schema::create('LOGIN_HISTORIAL', function (Blueprint $table) {
-        $table->id('ID_LOGIN');
+        $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->timestamp('FECHA_HORA')->useCurrent();
         $table->string('METODO_AUTENTICACION', 50)->nullable();

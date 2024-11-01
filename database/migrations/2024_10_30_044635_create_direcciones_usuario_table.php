@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     { 
     Schema::create('DIRECCIONES_USUARIO', function (Blueprint $table) {
-        $table->id('ID');
+        $table->id();
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->string('NOMBRE_COMPLETO', 255);
         $table->string('CODIGO_POSTAL', 10);
