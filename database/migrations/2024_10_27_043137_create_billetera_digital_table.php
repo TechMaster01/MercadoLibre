@@ -16,7 +16,6 @@ return new class extends Migration
         $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
         $table->decimal('SALDO', 10, 2)->default(0.00);
         $table->string('TIPO_MONEDA', 10)->default('MXN');
-        $table->string('METODO_PAGO', 50)->nullable();
         $table->timestamps();
     });
 }

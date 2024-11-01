@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Billetera;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -58,6 +59,21 @@ class usuariosController extends Controller
             return response()->json($Data,500);
         }
 
+
+
+        // Crear la billetera anidada al usuario
+        $billeteraController = new billeteraController();
+        $billeteraRequest = new Request(['ID_USUARIO' => $usuarios->id, ]); // Ajusta según el campo necesario en la billetera
+        $billeteraResponse = $billeteraController->store($billeteraRequest);
+
+        if($billeteraResponse->status() != 201){
+            return response()->json([
+                'message' => 'Usuario creado, pero hubo un error al crear la billetera',
+                'usuario' => $usuarios,
+                'status' => $billeteraResponse->status()
+            ], $billeteraResponse->status());
+        }
+
         $Data = [
             'usuario' => $usuarios,
             'status' => 201
@@ -97,6 +113,14 @@ class usuariosController extends Controller
             ];
 
             return response()->json($Data, 404);
+        }
+
+        // Llama al método destroy de BilleteraDigitalController para eliminar la billetera
+        $billeteraController = new billeteraController();
+        $billetera = Billetera::where('ID_USUARIO', $id)->first();
+
+        if ($billetera) {
+            $billeteraController->destroy($billetera->id); // Pasa el ID de la billetera al método destroy
         }
 
         $usuarios->delete();
