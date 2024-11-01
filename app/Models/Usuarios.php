@@ -13,13 +13,9 @@ class Usuarios extends Model
 
     protected $fillable = [
         'NOMBRES',
-        'APELLIDO',
+        'APELLIDOS',
         'EMAIL',
         'TELEFONO',
-        'CONTRASENA',
-        'IMAGEN_PERFIL',
-        'ACTIVO',
-        'FECHA_NACIMIENTO',
-        'SEXO'
+        'CONTRASENA'
     ];
 }

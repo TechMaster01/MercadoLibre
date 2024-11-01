@@ -25,13 +25,10 @@ class usuariosController extends Controller
     public function store(Request $request){
         $Validator = Validator::make($request->all(), [
             'NOMBRES' => 'required|max:255',
+            'APELLIDOS' => 'required',
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
-            'CONTRASENA' => 'required',
-            'IMAGEN_PERFIL',
-            'ACTIVO' => 'required|boolean',
-            'FECHA_NACIMIENTO' => 'required',
-            'SEXO' => 'required'
+            'CONTRASENA' => 'required'
         ]);
 
         if($Validator->fails()){
@@ -46,14 +43,10 @@ class usuariosController extends Controller
 
         $usuarios = Usuarios::create([
             'NOMBRES' => $request->NOMBRES,
-            'APELLIDO' => $request->APELLIDO,
+            'APELLIDOS' => $request->APELLIDOS,
             'EMAIL' => $request->EMAIL,
             'TELEFONO' => $request->TELEFONO,
-            'CONTRASENA' => hash('sha256', $request->CONTRASENA),
-            'IMAGEN_PERFIL' => $request->IMAGEN_PERFIL,
-            'ACTIVO' => $request->ACTIVO,
-            'FECHA_NACIMIENTO' => $request->FECHA_NACIMIENTO,
-            'SEXO' => $request->SEXO
+            'CONTRASENA' => hash('sha256', $request->CONTRASENA)
         ]);
 
         if(!$usuarios){
@@ -130,13 +123,10 @@ class usuariosController extends Controller
     
         $validator = Validator::make($request->all(), [
             'NOMBRES' => 'required|max:255',
+            'APELLIDOS' => 'required',
             'EMAIL' => 'required|email',
             'TELEFONO' => 'required',
-            'CONTRASENA' => 'required', // Si quieres que la contraseña sea obligatoria
-            'IMAGEN_PERFIL',
-            'ACTIVO' => 'required|boolean', // Asegúrate de que ACTIVO sea booleano
-            'FECHA_NACIMIENTO' => 'required',
-            'SEXO' => 'required'
+            'CONTRASENA' => 'required'
         ]);
     
         if ($validator->fails()) {
@@ -150,13 +140,10 @@ class usuariosController extends Controller
         }
     
         $usuarios->NOMBRES = $request->NOMBRES;
+        $usuarios->APELLIDOS = $request->APELLIDOS;
         $usuarios->EMAIL = $request->EMAIL;
         $usuarios->TELEFONO = $request->TELEFONO;
-        $usuarios->CONTRASENA = hash('sha256', $request->CONTRASENA); // Hash de la contraseña
-        $usuarios->IMAGEN_PERFIL = $request->IMAGEN_PERFIL;
-        $usuarios->ACTIVO = $request->ACTIVO;
-        $usuarios->FECHA_NACIMIENTO = $request->FECHA_NACIMIENTO;
-        $usuarios->SEXO = $request->SEXO;
+        $usuarios->CONTRASENA = hash('sha256', $request->CONTRASENA);
     
         $usuarios->save();
     

@@ -58,4 +58,6 @@ Route::put('/categorias/{id}', [categoriasController::class, 'update']);
 Route::delete('/categorias/{id}', [categoriasController::class, 'destroy']);
 
 //Ruta para el login
+Route::get('/login', [loginController::class, 'index']);
+
 Route::post('/login', [loginController::class, 'store']);
