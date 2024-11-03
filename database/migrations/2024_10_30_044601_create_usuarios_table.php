@@ -17,7 +17,7 @@ return new class extends Migration
         $table->string('APELLIDOS', 100);
         $table->string('EMAIL', 100)->unique();
         $table->string('TELEFONO', 15)->nullable();
-        $table->string('CONTRASEÑA', 255);
+        $table->string('CONTRASENA', 255);
         $table->timestamps();
     });
     }
