@@ -9,6 +9,7 @@ use App\Http\Controllers\api\pedidosController;
 use App\Http\Controllers\api\productosController;
 use App\Http\Controllers\api\usuariosController;
 use App\Http\Controllers\api\loginController;
+use App\Http\Controllers\api\loginMobileController;
 
 /*Route::get('/user', function (Request $request) {
     return $request->user();
