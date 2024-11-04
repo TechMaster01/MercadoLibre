@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\billeteraController;
 use App\Http\Controllers\api\categoriasController;
+use App\Http\Controllers\api\direccionesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,10 @@ Route::get('/billetera', [billeteraController::class, 'index']);
 Route::get('/billetera/{id}', [billeteraController::class, 'show']);
 Route::post('/billetera', [billeteraController::class, 'store']);
 Route::delete('/billetera/{id}', [billeteraController::class, 'destroy']);
+
+//Rutas para las direcciones
+Route::get('/direcciones', [direccionesController::class, 'index']);
+Route::get('/direcciones/{id}', [direccionesController::class, 'show']);
+Route::post('/direcciones', [direccionesController::class, 'store']);
+Route::put('/direcciones/{id}', [direccionesController::class, 'update']);
+Route::delete('/direcciones/{id}', [direccionesController::class, 'destroy']);

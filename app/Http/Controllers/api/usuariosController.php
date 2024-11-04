@@ -23,6 +23,27 @@ class usuariosController extends Controller
         //return 'Obteniendo lista de clientes desde el controller';
     }
 
+    public function show($id){
+        $usuarios = Usuarios::find($id);
+
+
+        if(!$usuarios){
+            $Data = [
+                'message' => 'Usuario no encontrado',
+                'status' => 404
+            ];
+
+            return response()->json($Data, 404);
+        }
+
+        $Data = [
+            'usuario' => $usuarios,
+            'status' => 200
+        ];
+
+        return response()->json($Data, 200);
+    }
+
     public function store(Request $request){
         $Validator = Validator::make($request->all(), [
             'NOMBRES' => 'required|max:255',
@@ -59,8 +80,6 @@ class usuariosController extends Controller
             return response()->json($Data,500);
         }
 
-
-
         // Crear la billetera anidada al usuario
         $billeteraController = new billeteraController();
         $billeteraRequest = new Request(['ID_USUARIO' => $usuarios->id, ]); // Ajusta según el campo necesario en la billetera
@@ -80,57 +99,6 @@ class usuariosController extends Controller
         ];
 
         return response()->json($Data, 201);
-    }
-
-    public function show($id){
-        $usuarios = Usuarios::find($id);
-
-
-        if(!$usuarios){
-            $Data = [
-                'message' => 'Usuario no encontrado',
-                'status' => 404
-            ];
-
-            return response()->json($Data, 404);
-        }
-
-        $Data = [
-            'usuario' => $usuarios,
-            'status' => 200
-        ];
-
-        return response()->json($Data, 200);
-    }
-
-    public function destroy($id){
-        $usuarios = Usuarios::find($id);
-
-        if(!$usuarios){
-            $Data = [
-                'message' => 'Usuario no encontrado',
-                'status' => 404
-            ];
-
-            return response()->json($Data, 404);
-        }
-
-        // Llama al método destroy de BilleteraDigitalController para eliminar la billetera
-        $billeteraController = new billeteraController();
-        $billetera = Billetera::where('ID_USUARIO', $id)->first();
-
-        if ($billetera) {
-            $billeteraController->destroy($billetera->id); // Pasa el ID de la billetera al método destroy
-        }
-
-        $usuarios->delete();
-
-        $Data = [
-            'message' => 'usuario eliminado',
-            'status' => 200
-        ];
-
-        return response()->json($Data, 200);
     }
 
     public function update(Request $request, $id) {
@@ -178,5 +146,35 @@ class usuariosController extends Controller
         ];
     
         return response()->json($data, 200);
-    }    
+    }
+
+    public function destroy($id){
+        $usuarios = Usuarios::find($id);
+
+        if(!$usuarios){
+            $Data = [
+                'message' => 'Usuario no encontrado',
+                'status' => 404
+            ];
+
+            return response()->json($Data, 404);
+        }
+
+        // Llama al método destroy de BilleteraDigitalController para eliminar la billetera
+        $billeteraController = new billeteraController();
+        $billetera = Billetera::where('ID_USUARIO', $id)->first();
+
+        if ($billetera) {
+            $billeteraController->destroy($billetera->id); // Pasa el ID de la billetera al método destroy
+        }
+
+        $usuarios->delete();
+
+        $Data = [
+            'message' => 'usuario eliminado',
+            'status' => 200
+        ];
+
+        return response()->json($Data, 200);
+    }
 }
