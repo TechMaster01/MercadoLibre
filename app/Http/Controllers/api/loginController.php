@@ -15,7 +15,7 @@ class loginController extends Controller
         throw new NotFoundHttpException();
     }
 
-    public function login(Request $request){
+    public function store(Request $request){
         // Si ambos campos están presentes
         if ($request->has(['EMAIL', 'CONTRASENA'])) {
             $validator = Validator::make($request->all(), [
