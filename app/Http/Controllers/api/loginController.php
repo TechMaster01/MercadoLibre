@@ -31,7 +31,15 @@ class loginController extends Controller
     
         // Busca el usuario por email
         $user = Usuarios::where('EMAIL', $request->EMAIL)->first();
-    
+
+        // Verifica si el usuario no existe y arroja un error 404
+        if (!$user) {
+            return response()->json([
+                'message' => 'Usuario no encontrado',
+                'status' => 404
+            ], 404);
+        }
+        
         // Verifica que el usuario exista y la contraseña sea correcta
         if ($user && hash('sha256', $request->CONTRASENA) === $user->CONTRASENA) {
             // Aquí puedes crear un token o iniciar sesión manualmente si es necesario
