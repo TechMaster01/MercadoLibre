@@ -55,6 +55,7 @@ Route::get('/billetera', [billeteraController::class, 'index']);
 //EL ID QUE SE LE MANDA ES EL ID DEL USUARIO
 Route::get('/billetera/{id}', [billeteraController::class, 'show']);
 Route::post('/billetera', [billeteraController::class, 'store']);
+//EL ID QUE SE LE MANDA ES EL ID DE LA BILLETERA
 Route::delete('/billetera/{id}', [billeteraController::class, 'destroy']);
 
 //Rutas para las direcciones
@@ -62,24 +63,27 @@ Route::get('/direcciones', [direccionesController::class, 'index']);
 //EL ID QUE SE LE MANDA ES EL ID DEL USUARIO
 Route::get('/direcciones/{id}', [direccionesController::class, 'show']);
 Route::post('/direcciones', [direccionesController::class, 'store']);
+//EL ID QUE SE LE MANDA ES EL ID DE LA DIRECCION
 Route::put('/direcciones/{id}', [direccionesController::class, 'update']);
+//EL ID QUE SE LE MANDA ES EL ID DE LA DIRECCION
 Route::delete('/direcciones/{id}', [direccionesController::class, 'destroy']);
 
 //Rutas para favoritos
 Route::get('/favoritos', [favoritosController::class, 'index']);
+//EL ID QUE SE LE MANDA ES EL ID DEL USUARIO
 Route::get('/favoritos/{id}', [favoritosController::class, 'show']);
 Route::post('/favoritos', [favoritosController::class, 'store']);
-Route::put('/favoritos/{id}', [favoritosController::class, 'update']);
+//EL ID QUE SE LE MANDA ES EL ID DEL PRODUCTO
 Route::delete('/favoritos/{id}', [favoritosController::class, 'destroy']);
 
 //Rutas para tarjetas
 Route::get('/tarjetas', [tarjetasController::class, 'index']);
+//EL ID QUE SE LE MANDA ES LA TARJETA
 Route::get('/tarjetas/{id}', [tarjetasController::class, 'show']);
 Route::post('/tarjetas', [tarjetasController::class, 'store']);
+//EL ID QUE SE LE MANDA ES LA TARJETA
 Route::put('/tarjetas/{id}', [tarjetasController::class, 'update']);
+//EL ID QUE SE LE MANDA ES LA TARJETA
 Route::delete('/tarjetas/{id}', [tarjetasController::class, 'destroy']);
 
-
-
 //Rutas para carrito
-//Rutas para favoritos
