@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('TARJETAS', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('ID_BILLETERA')->constrained('BILLETERA_DIGITAL');
             $table->string('NUMERO_TARJETA')->unique();
             $table->text('NOMBRE_TITULAR');
-            $table->date('FECHA_EXPIRACION');
+            $table->string('FECHA_EXPIRACION');
             $table->string('CVV');
             $table->string('APODO')->nullable();
             $table->timestamps();

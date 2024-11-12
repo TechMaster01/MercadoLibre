@@ -13,10 +13,19 @@ class Productos extends Model
     protected $table = 'PRODUCTOS';
 
     protected $fillable = [
+        'MARCA',
         'NOMBRE_PRODUCTO',
         'DESCRIPCION_PRODUCTO',
+        'CARACTERISTICAS_PRODUCTO',
         'PRECIO',
+        'CANTIDAD_VENDIDOS',
+        'PRECIO_CON_DESCUENTO',
+        'PORCENTAJES_DESCUENTOS',
         'STOCK',
-        'ID_VENDEDOR'
+        'IMAGEN',
+        'ID_VENDEDOR',
+        'ID_CATEGORIA',
+        'COLORES DISPONIBLES',
+        'TIPO_ENVIO'
     ];
 }

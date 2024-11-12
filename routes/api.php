@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\billeteraController;
 use App\Http\Controllers\api\categoriasController;
 use App\Http\Controllers\api\direccionesController;
+use App\Http\Controllers\api\favoritosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,7 @@ use App\Http\Controllers\api\productosController;
 use App\Http\Controllers\api\usuariosController;
 use App\Http\Controllers\api\loginController;
 use App\Http\Controllers\api\loginMobileController;
+use App\Http\Controllers\api\tarjetasController;
 
 /*Route::get('/user', function (Request $request) {
     return $request->user();
@@ -50,13 +52,34 @@ Route::post('/login', [loginController::class, 'store']);
 
 //Rutas para la billetera
 Route::get('/billetera', [billeteraController::class, 'index']);
+//EL ID QUE SE LE MANDA ES EL ID DEL USUARIO
 Route::get('/billetera/{id}', [billeteraController::class, 'show']);
 Route::post('/billetera', [billeteraController::class, 'store']);
 Route::delete('/billetera/{id}', [billeteraController::class, 'destroy']);
 
 //Rutas para las direcciones
 Route::get('/direcciones', [direccionesController::class, 'index']);
+//EL ID QUE SE LE MANDA ES EL ID DEL USUARIO
 Route::get('/direcciones/{id}', [direccionesController::class, 'show']);
 Route::post('/direcciones', [direccionesController::class, 'store']);
 Route::put('/direcciones/{id}', [direccionesController::class, 'update']);
 Route::delete('/direcciones/{id}', [direccionesController::class, 'destroy']);
+
+//Rutas para favoritos
+Route::get('/favoritos', [favoritosController::class, 'index']);
+Route::get('/favoritos/{id}', [favoritosController::class, 'show']);
+Route::post('/favoritos', [favoritosController::class, 'store']);
+Route::put('/favoritos/{id}', [favoritosController::class, 'update']);
+Route::delete('/favoritos/{id}', [favoritosController::class, 'destroy']);
+
+//Rutas para tarjetas
+Route::get('/tarjetas', [tarjetasController::class, 'index']);
+Route::get('/tarjetas/{id}', [tarjetasController::class, 'show']);
+Route::post('/tarjetas', [tarjetasController::class, 'store']);
+Route::put('/tarjetas/{id}', [tarjetasController::class, 'update']);
+Route::delete('/tarjetas/{id}', [tarjetasController::class, 'destroy']);
+
+
+
+//Rutas para carrito
+//Rutas para favoritos

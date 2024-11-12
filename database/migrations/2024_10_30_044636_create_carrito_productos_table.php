@@ -12,10 +12,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('CARRITO_PRODUCTOS', function (Blueprint $table) {
-            $table->foreignId('ID')->constrained('CARRITO_COMPRAS');
+            $table->foreignId('ID_CARRITO')->constrained('CARRITO_COMPRAS');
             $table->foreignId('ID_PRODUCTO')->constrained('PRODUCTOS');
             $table->integer('CANTIDAD');
-            $table->primary(['ID', 'ID_PRODUCTO']);
+            $table->primary(['ID_CARRITO', 'ID_PRODUCTO']);
             $table->timestamps();
         });
     }
