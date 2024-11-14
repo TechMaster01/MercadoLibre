@@ -22,48 +22,6 @@ class pedidosController extends Controller
         //return 'Obteniendo lista de clientes desde el controller';
     }
 
-    public function store(Request $request){
-        $Validator = Validator::make($request->all(), [
-            'ID_USUARIO' => 'required|exists:USUARIOS,id',
-            'FECHA_PEDIDO' => 'required',
-            'MONTO_TOTAL' => 'required',
-            'ESTADO_ENVIO' => 'required'
-        ]);
-
-        if($Validator->fails()){
-            $Data = [
-                'message' => 'Error en la validación de los datos',
-                'Errors' => $Validator->errors(),
-                'status' => 400
-            ];
-
-            return response()->json($Data, 400);
-        }
-
-        $pedidos = Pedidos::create([
-            'ID_USUARIO' => $request->ID_USUARIO,
-            'FECHA_PEDIDO' => $request->FECHA_PEDIDO,
-            'MONTO_TOTAL' => $request->MONTO_TOTAL,
-            'ESTADO_ENVIO' => $request->ESTADO_ENVIO,
-        ]);
-
-        if(!$pedidos){
-            $Data = [
-                'message' => 'Error al crear el pedido',
-                'status' => 500
-            ];
-
-            return response()->json($Data,500);
-        }
-
-        $Data = [
-            'pedido' => $pedidos,
-            'status' => 201
-        ];
-
-        return response()->json($Data, 201);
-    }
-
     public function show($id){
         $pedidos = Pedidos::find($id);
 
@@ -85,28 +43,50 @@ class pedidosController extends Controller
         return response()->json($Data, 200);
     }
 
-    public function destroy($id){
-        $pedidos = Pedidos::find($id);
+    public function store(Request $request){
+        $Validator = Validator::make($request->all(), [
+            'ID_USUARIO' => 'required|exists:USUARIOS,id',
+            'FECHA_PEDIDO' => 'required',
+            'MONTO_TOTAL' => 'required',
+            'ESTADO_ENVIO' => 'required',
+            'ID_CARRITO' => 'required'
+        ]);
+
+        if($Validator->fails()){
+            $Data = [
+                'message' => 'Error en la validación de los datos',
+                'Errors' => $Validator->errors(),
+                'status' => 400
+            ];
+
+            return response()->json($Data, 400);
+        }
+
+        $pedidos = Pedidos::create([
+            'ID_USUARIO' => $request->ID_USUARIO,
+            'FECHA_PEDIDO' => $request->FECHA_PEDIDO,
+            'MONTO_TOTAL' => $request->MONTO_TOTAL,
+            'ESTADO_ENVIO' => $request->ESTADO_ENVIO,
+            'ID_CARRITO' => $request->ID_CARRITO
+        ]);
 
         if(!$pedidos){
             $Data = [
-                'message' => 'Pedido no encontrado',
-                'status' => 404
+                'message' => 'Error al crear el pedido',
+                'status' => 500
             ];
 
-            return response()->json($Data, 404);
+            return response()->json($Data,500);
         }
 
-        $pedidos->delete();
-
         $Data = [
-            'message' => 'Pedido eliminado',
-            'status' => 200
+            'pedido' => $pedidos,
+            'status' => 201
         ];
 
-        return response()->json($Data, 200);
+        return response()->json($Data, 201);
     }
-
+    
     public function update(Request $request, $id){
         $pedidos = Pedidos::find($id);
 
@@ -123,7 +103,8 @@ class pedidosController extends Controller
             'ID_USUARIO' => 'required|exists:USUARIOS,id',
             'FECHA_PEDIDO' => 'required',
             'MONTO_TOTAL' => 'required',
-            'ESTADO_ENVIO' => 'required'
+            'ESTADO_ENVIO' => 'required',
+            'ID_CARRITO' => 'required'
         ]);
 
         if($Validator->fails()){
@@ -140,12 +121,35 @@ class pedidosController extends Controller
         $pedidos->FECHA_PEDIDO = $request->FECHA_PEDIDO;
         $pedidos->MONTO_TOTAL = $request->MONTO_TOTAL;
         $pedidos->ESTADO_ENVIO = $request->ESTADO_ENVIO;
+        $pedidos->ID_CARRITO = $request->ID_CARRITO;
 
         $pedidos->save();
 
         $Data = [
             'message' => 'Pedido actualizado',
             'pedido' => $pedidos,
+            'status' => 200
+        ];
+
+        return response()->json($Data, 200);
+    }
+    
+    public function destroy($id){
+        $pedidos = Pedidos::find($id);
+
+        if(!$pedidos){
+            $Data = [
+                'message' => 'Pedido no encontrado',
+                'status' => 404
+            ];
+
+            return response()->json($Data, 404);
+        }
+
+        $pedidos->delete();
+
+        $Data = [
+            'message' => 'Pedido eliminado',
             'status' => 200
         ];
 

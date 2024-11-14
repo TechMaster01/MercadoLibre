@@ -16,6 +16,7 @@ class Pedidos extends Model
         'ID_USUARIO',
         'FECHA_PEDIDO',
         'MONTO_TOTAL',
-        'ESTADO_ENVIO'
+        'ESTADO_ENVIO',
+        'ID_CARRITO'
     ];
 }

@@ -17,6 +17,7 @@ return new class extends Migration
         $table->timestamp('FECHA_PEDIDO')->useCurrent();
         $table->decimal('MONTO_TOTAL', 10, 2);
         $table->string('ESTADO_ENVIO', 100)->nullable();
+        $table->foreignId('ID_CARRITO')->constrained('CARRITO_COMPRAS');
         $table->timestamps();
     });
     }
