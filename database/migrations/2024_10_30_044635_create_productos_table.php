@@ -25,6 +25,12 @@ class CreateProductosTable extends Migration
             $table->foreignId('ID_CATEGORIA')->nullable()->constrained('CATEGORIAS');
             $table->string('COLORES_DISPONIBLES')->nullable();
             $table->enum('TIPO_ENVIO', ['estándar', 'express', 'internacional'])->default('estándar');
+            $table->date('FECHA_ENTREGA')->nullable(); 
+            $table->decimal('COSTE_ENTREGA', 10, 2)->nullable(); 
+            $table->decimal('CALIFICACION', 3, 1)->nullable()->default(0); 
+            $table->decimal('IVA', 5, 2)->nullable(); 
+            $table->text('CARACTERISTICAS')->nullable(); 
+            $table->boolean('PRODUCTOS_TEMPORADA')->default(false); 
             $table->timestamps();
         });
     }
