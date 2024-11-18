@@ -4,6 +4,7 @@ use App\Http\Controllers\api\billeteraController;
 use App\Http\Controllers\api\categoriasController;
 use App\Http\Controllers\api\direccionesController;
 use App\Http\Controllers\api\favoritosController;
+use App\Http\Controllers\api\filtroController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -77,13 +78,17 @@ Route::post('/favoritos', [favoritosController::class, 'store']);
 Route::delete('/favoritos/{id}', [favoritosController::class, 'destroy']);
 
 //Rutas para tarjetas
-Route::get('/tarjetas', [tarjetasController::class, 'index']);
-//EL ID QUE SE LE MANDA ES LA TARJETA
+Route::get('/tarjetas', [tarjetasController::class, 'index']); //Retorna 404
+//EL ID QUE SE LE MANDA ES DE LA BILLETERA (ID_BILLETERA)
 Route::get('/tarjetas/{id}', [tarjetasController::class, 'show']);
 Route::post('/tarjetas', [tarjetasController::class, 'store']);
-//EL ID QUE SE LE MANDA ES LA TARJETA
+//EL PARAMETRO QUE SE LE MANDA ES LA TARJETA (NUMERO_TARJETA)
 Route::put('/tarjetas/{id}', [tarjetasController::class, 'update']);
-//EL ID QUE SE LE MANDA ES LA TARJETA
+//EL ID QUE SE LE MANDA ES LA TARJETA (NUMERO_TARJETA)
 Route::delete('/tarjetas/{id}', [tarjetasController::class, 'destroy']);
 
 //Rutas para carrito
+
+
+//Rutas para los filtros
+Route::get('/FilterProductsByCategory/{id}', [filtroController::class, 'FilterProductsByCategory']);
