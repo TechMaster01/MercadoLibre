@@ -17,7 +17,7 @@ class CreateInmueblesTable extends Migration
             $table->decimal('PRECIO', 15, 2);
             $table->integer('METROS_INMUEBLE'); 
             $table->integer('NUMERO_RECAMARAS')->nullable();
-            $table->integer('NUMERO_BAÑOS')->nullable();
+            $table->integer('NUMERO_BANOS')->nullable();
             $table->string('UBICACION', 255); 
             $table->text('CARACTERISTICAS_INMUEBLE')->nullable(); 
             $table->text('INFORMACION_ZONA')->nullable(); 
