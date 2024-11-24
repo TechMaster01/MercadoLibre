@@ -42,7 +42,7 @@ class productosController extends Controller
         return response()->json($Data, 200);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request){
         $Validator = Validator::make($request->all(), [
             'MARCA' => 'required|max:255',
             'NOMBRE_PRODUCTO' => 'required|max:255',
@@ -57,19 +57,25 @@ class productosController extends Controller
             'ID_VENDEDOR' => 'required|integer',
             'ID_CATEGORIA' => 'required|integer',
             'COLORES_DISPONIBLES' => 'nullable|string',
-            'TIPO_ENVIO' => 'nullable|string'
+            'TIPO_ENVIO' => 'nullable|string',
+            'FECHA_ENTREGA' => 'nullable|date',
+            'COSTE_ENTREGA' => 'nullable|numeric',
+            'CALIFICACION' => 'nullable|numeric|min:0|max:5',
+            'IVA' => 'nullable|numeric',
+            'CARACTERISTICAS' => 'nullable|string',
+            'PRODUCTOS_TEMPORADA' => 'nullable|string'
         ]);
-    
+
         if ($Validator->fails()) {
             $Data = [
                 'message' => 'Error en la validación de los datos',
                 'Errors' => $Validator->errors(),
                 'status' => 400
             ];
-    
+
             return response()->json($Data, 400);
         }
-    
+
         $productos = Productos::create([
             'MARCA' => $request->MARCA,
             'NOMBRE_PRODUCTO' => $request->NOMBRE_PRODUCTO,
@@ -84,38 +90,44 @@ class productosController extends Controller
             'ID_VENDEDOR' => $request->ID_VENDEDOR,
             'ID_CATEGORIA' => $request->ID_CATEGORIA,
             'COLORES_DISPONIBLES' => $request->COLORES_DISPONIBLES,
-            'TIPO_ENVIO' => $request->TIPO_ENVIO
+            'TIPO_ENVIO' => $request->TIPO_ENVIO,
+            'FECHA_ENTREGA' => $request->FECHA_ENTREGA,
+            'COSTE_ENTREGA' => $request->COSTE_ENTREGA,
+            'CALIFICACION' => $request->CALIFICACION,
+            'IVA' => $request->IVA,
+            'CARACTERISTICAS' => $request->CARACTERISTICAS,
+            'PRODUCTOS_TEMPORADA' => $request->PRODUCTOS_TEMPORADA
         ]);
-    
+
         if (!$productos) {
             $Data = [
                 'message' => 'Error al crear el producto',
                 'status' => 500
             ];
-    
+
             return response()->json($Data, 500);
         }
-    
+
         $Data = [
             'producto' => $productos,
             'status' => 201
         ];
-    
-        return response()->json($Data, 201);
-    }    
 
-    public function update(Request $request, $id) {
+        return response()->json($Data, 201);
+    }
+
+    public function update(Request $request, $id){
         $productos = Productos::find($id);
-    
+
         if (!$productos) {
             $Data = [
                 'message' => 'Producto no encontrado',
                 'status' => 404
             ];
-    
+
             return response()->json($Data, 404);
         }
-    
+
         $Validator = Validator::make($request->all(), [
             'MARCA' => 'required|max:255',
             'NOMBRE_PRODUCTO' => 'required|max:255',
@@ -130,19 +142,25 @@ class productosController extends Controller
             'ID_VENDEDOR' => 'required|integer',
             'ID_CATEGORIA' => 'required|integer',
             'COLORES_DISPONIBLES' => 'nullable|string',
-            'TIPO_ENVIO' => 'nullable|string'
+            'TIPO_ENVIO' => 'nullable|string',
+            'FECHA_ENTREGA' => 'nullable|date',
+            'COSTE_ENTREGA' => 'nullable|numeric',
+            'CALIFICACION' => 'nullable|numeric|min:0|max:5',
+            'IVA' => 'nullable|numeric',
+            'CARACTERISTICAS' => 'nullable|string',
+            'PRODUCTOS_TEMPORADA' => 'nullable|string'
         ]);
-    
+
         if ($Validator->fails()) {
             $Data = [
                 'message' => 'Error en la validación de los datos',
                 'Errors' => $Validator->errors(),
                 'status' => 400
             ];
-    
+
             return response()->json($Data, 400);
         }
-    
+
         $productos->MARCA = $request->MARCA;
         $productos->NOMBRE_PRODUCTO = $request->NOMBRE_PRODUCTO;
         $productos->DESCRIPCION_PRODUCTO = $request->DESCRIPCION_PRODUCTO;
@@ -157,18 +175,23 @@ class productosController extends Controller
         $productos->ID_CATEGORIA = $request->ID_CATEGORIA;
         $productos->COLORES_DISPONIBLES = $request->COLORES_DISPONIBLES;
         $productos->TIPO_ENVIO = $request->TIPO_ENVIO;
-    
+        $productos->FECHA_ENTREGA = $request->FECHA_ENTREGA;
+        $productos->COSTE_ENTREGA = $request->COSTE_ENTREGA;
+        $productos->CALIFICACION = $request->CALIFICACION;
+        $productos->IVA = $request->IVA;
+        $productos->CARACTERISTICAS = $request->CARACTERISTICAS;
+        $productos->PRODUCTOS_TEMPORADA = $request->PRODUCTOS_TEMPORADA;
+
         $productos->save();
-    
+
         $Data = [
             'message' => 'Producto actualizado',
             'producto' => $productos,
             'status' => 200
         ];
-    
+
         return response()->json($Data, 200);
-    }
-    
+    }    
 
     public function destroy($id){
         $productos = Productos::find($id);

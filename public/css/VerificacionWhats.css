@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+
+.banner {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; 
+    background-color: #ffe600;
+    z-index: 1000; 
+}
+
+.banner img {
+    width: 10%;
+    height: 100%;
+    object-position: left;
+}
+
+.container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    flex-wrap: nowrap; 
+    margin-top: 60px; 
+    max-width: 1200px; 
+    width: 100%; 
+}
+
+.verification-container{
+    background-color: #ffffff; 
+    padding: 20px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    margin: 0 10px; 
+    max-width: 400px; 
+    width: 100%; 
+}
+.verification-container2{
+    background-color: #ffffff; 
+    padding: 20px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    margin: 0 10px; 
+    max-width: 400px; 
+    width: 100%; 
+}
+
+.verification-container h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 16px; 
+}
+
+.verification-container h3 {
+    color: #616161;
+    margin-bottom: 10px;
+    font-size: 16px; 
+}
+
+.verification-container p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 12px; 
+}
+
+.user-info span {
+    font-size: 12px; 
+    color: #333;
+}
+
+.user-info a {
+    font-size: 10px; 
+    color: #3483fa;
+    text-decoration: none;
+}
+
+.help-link {
+    font-size: 10px; 
+    color: #3483fa;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.code-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.code-inputs input {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #3483fa;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+}
+
+.timer {
+    margin-top: 10px;
+    color: #999;
+}
+
+.resend-link {
+    color: #3483fa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.resend-link:hover {
+    text-decoration: underline;
+}
+
+.resend-button {
+    background-color: transparent; 
+    border: 2px solid #ffffff; 
+    color: #007BFF; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}

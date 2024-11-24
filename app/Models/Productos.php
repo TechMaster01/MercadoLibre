@@ -26,6 +26,12 @@ class Productos extends Model
         'ID_VENDEDOR',
         'ID_CATEGORIA',
         'COLORES DISPONIBLES',
-        'TIPO_ENVIO'
+        'TIPO_ENVIO',
+        'FECHA_ENTREGA',
+        'COSTE_ENTREGA',
+        'CALIFICACION',
+        'IVA',
+        'CARACTERISTICAS',
+        'PRODUCTOS_TEMPORADA'
     ];
 }
