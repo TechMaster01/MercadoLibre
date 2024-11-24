@@ -142,3 +142,7 @@ Route::get('/verificacionwhats', function () {
 Route::get('/vistacarrito', function () {
     return view('VistaCarrito');
 });
+
+Route::get('/favoritos', function () {
+    return view('favoritos');
+});
