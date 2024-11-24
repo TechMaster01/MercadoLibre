@@ -1,0 +1,495 @@
+/*Registro*/
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+.registro-container {
+    margin-top: 50px;
+    justify-content: center;
+}
+.card-registro {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+}
+.header-registro {
+    background-color: #ffe600;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.body-registro 
+{
+    padding: 30px;
+}    
+.btn-primary{ 
+        background-color: #3483fa;            border: none;
+}
+.btn-primary:hover {
+       background-color: #2968c8;
+}        
+    .logo-container {
+    background-color: #ffe600;
+    padding: 15px;
+    text-align: center;
+}        
+   .logo-container img
+   {
+    width: 150px;
+} 
+
+
+
+/*Historial*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+.header {
+    background-color: #ffe600;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* barra de busqueda y logo */
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.header-logo img {
+    width: 150px;
+    margin-right: 20px; 
+}
+
+.header .search-bar {
+    flex-grow: 1;
+}
+
+.header .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* opciones principales */
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.nav-bar a {
+    margin: 0 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+/* opciones de usuario */
+.opciones-usuarios {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.opciones-usuarios a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.opciones-usuarios a:hover {
+    text-decoration: underline;
+}
+
+.opciones-usuarios img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* historial */
+.historial {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.historial h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contenido-historial {
+    text-align: center;
+    padding: 50px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contenido-historial p {
+    font-size: 18px;
+    color: #999;
+}
+
+.contenido-historial a {
+    color: #3483fa;
+    text-decoration: none;
+}
+
+.contenido-historial a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Favoritos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff600;
+    padding: 10px;
+}
+
+.navbar-logo img {
+    height: 50px;
+}
+
+.navbar-search input {
+    width: 600px;
+    padding: 8px;
+}
+
+.options ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    background-color: #fff600;
+}
+
+.options ul li {
+    margin: 0 10px;
+}
+
+.options ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.options ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Barra lateral */
+.sidebar {
+    width: 220px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 100px; 
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 100px); 
+    overflow-y: auto;
+}
+.sidebar-nombre{
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar .dropdown.active .submenu {
+    display: block;
+}
+
+.sidebar .dropdown {
+    position: relative;
+}
+
+.sidebar .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.sidebar .dropdown.active .submenu {
+    display: block;
+}
+
+/* Main Content Styles */
+.container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.favorites-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+/* Tabs */
+.favorites-tabs .nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+
+.favorites-tabs .nav-link {
+    color: #333;
+    padding: 10px;
+    border: none;
+}
+
+.favorites-tabs .nav-link.active {
+    color: #3483FA;
+    border-bottom: 2px solid #3483FA;
+}
+
+/* Contenido de Favoritos */
+.empty-favorites {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.empty-favorites .heart-icon {
+    font-size: 48px;
+    color: #ccc;
+}
+
+.empty-favorites p {
+    color: #666;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.btn-secondary {
+    background-color: #3483FA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #2968c8;
+}
+
+
+/* Mis compras */
+.purchases-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+/* Título de Mis Compras */
+.empty-purchases-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    height: 100%; 
+    padding: 20px;
+}
+
+/* Asegurarse que la sección de compras no se centre */
+.purchases-section h2 {
+    display: flex;
+    text-align: left; 
+    margin-bottom: 20px;
+}
+
+.empty-purchases {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 50vh; 
+}
+
+/* Ajustes de los textos e imagen */
+.empty-purchases img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.empty-purchases p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center; 
+}
+
+/* Botón de explorar productos */
+.btn-explorar {
+    background-color: #3483FA; 
+    color: white;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    margin-top: 20px; 
+    cursor: pointer; 
+    width: 200px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+/*Más vendidos*/
+.mas-vendidos {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #333;
+    font-size: 18px;
+    text-align: left;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.ver-mas {
+    float: right;
+    margin-right: 20px;
+    color: #3483fa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.productos {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
+    padding-top: 20px;
+}
+
+.producto {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 18%;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff7733;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.precio {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.precio-antiguo {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 12px;
+}
+
+.precio-actual {
+    color: #00a650;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.descuento {
+    color: #ff7733;
+    font-size: 12px;
+}
+
+.envio {
+    color: #00a650;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.producto p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.header .btnMeliplus img{
+    display: flex;
+    width: fit-content;
+    justify-content: flex-end;
+    width: auto;
+    max-width: 340px;
+    max-height: 39px;
+}

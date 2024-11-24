@@ -1,0 +1,200 @@
+/* Estilos globales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* header */
+.header {
+    background-color: #ffe600;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* barra de búsqueda y logo */
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.header-logo img {
+    width: 150px;
+    margin-right: 20px; 
+}
+
+.header .search-bar {
+    flex-grow: 1;
+}
+
+.header .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* opciones principales */
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.nav-bar a {
+    margin: 0 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+.imagenPerfil{
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 220px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 100px; 
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 100px); 
+    overflow-y: auto;
+}
+.sidebar-nombre{
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar .dropdown.active .submenu {
+    display: block;
+}
+
+.sidebar .dropdown {
+    position: relative;
+}
+
+.sidebar .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.sidebar .dropdown.active .submenu {
+    display: block;
+}
+
+/* Contenido principal */
+.container-fluid {
+    margin-left: 240px; 
+    padding: 20px;
+}
+
+.user-info {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 800px;
+    text-align: left;
+    margin-left: 300px;
+}
+
+.profile-options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+}
+
+.profile-option {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.profile-option:hover {
+    background-color: #f0f0f0;
+}
+
+.direccion{
+    text-align: left;
+    margin-left: 300px;
+    margin-bottom: -5px;
+
+}
+
+.infoSeccion{
+    padding: 20px;
+    margin-bottom: -20px;
+    width: 800px;
+    text-align: left;
+    margin-left: 280px;
+
+}
+/*Beneficiarops*/
+.btnAgregarBeneficiarios{
+    background-color: rgba(65,137,230,.15);
+    font-size: 14px;
+    color: #3483fa;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/*Datos personales*/
+.divisor{
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+/*Melilus*/
+.header .btnMeliplus img{
+    display: flex;
+    width: fit-content;
+    justify-content: flex-end;
+    width: auto;
+    max-width: 340px;
+    max-height: 39px;
+}
+.opciones-usuarios{
+    margin-left: 20px;
+}
+
+.header .meliplus-container {
+    background-color: #ffe600;
+}
+.meliplus-main {
+    color: #ffe600;
+}

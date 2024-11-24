@@ -24,7 +24,7 @@ class UsuariosTableSeeder extends Seeder
                 'APELLIDOS' => $faker->lastName, 
                 'EMAIL' => $faker->unique()->safeEmail,
                 'TELEFONO' => $faker->optional()->phoneNumber,
-                'CONTRASENA' => hash('sha256', 'Mercado libre prueba'), 
+            'CONTRASENA' => hash('sha256', 'Mercado libre prueba'), 
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
