@@ -20,18 +20,21 @@
         <div class="search-bar">
             <input type="text" class="form-control" placeholder="Buscar productos, marcas y más...">
         </div>
+        <a href="{{ route('meliplus') }}" class="btnMeliplus">
+        <img src="img/meliplusnavbarbtn.jpg" alt="SUSCRÍBETE A MELI+ POR 49.90 PESOS">
+        </a>
     </div>
 
 
     <div class="nav-bar">
         <a href="#">Categorías</a>
         <a href="#">Ofertas</a>
-        <a href="#">Historial</a>
+        <a href="{{ route('favoritos') }}historial">Historial</a>
         <a href="#">Supermercado</a>
         <a href="#">Moda</a>
-        <a href="#">Mercado Play</a>
-        <a href="#">Vender</a>
-        <a href="#">Ayuda</a>
+        <a href="{{ route('mercadoplay') }}">Mercado Play</a>
+        <a href="{{ route('publicar') }}">Vender</a>
+        <a href="{{ route('ayuda') }}">Ayuda</a>
 
 
         <div class="opciones-usuarios">
