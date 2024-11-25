@@ -23,9 +23,9 @@
         <h2>Agregar un nuevo domicilio</h2>
         <p>Llena los campos a continuación para agregar un domicilio a tu cuenta:</p>    
 
-        <!-- Formulario -->
+        
         <form action="/guardar-domicilio" method="POST" class="mt-4">
-            @csrf <!-- Token de seguridad de Laravel -->
+            @csrf 
 
             <input type="hidden" id="id_usuario" name="id_usuario" value="1">   
             <div>

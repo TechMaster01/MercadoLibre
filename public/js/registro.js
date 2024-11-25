@@ -1,7 +1,7 @@
 document.getElementById('registroForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    // Obtiene los valores del formulario
+  
     const name = document.getElementById('name').value;
     const lastname = document.getElementById('lastname').value;
     const email = document.getElementById('email').value;
@@ -11,7 +11,6 @@ document.getElementById('registroForm').addEventListener('submit', async (event)
 
     const responseMessage = document.getElementById('responseMessage');
 
-    // Validación: Verifica que las contraseñas coincidan
     if (password !== confirmPassword) {
         responseMessage.innerText = "Las contraseñas no coinciden.";
         responseMessage.style.color = "red";
@@ -19,8 +18,8 @@ document.getElementById('registroForm').addEventListener('submit', async (event)
     }
 
     try {
-        // Realiza la solicitud POST
-        const response = await fetch('http://127.0.0.1:8000/api/usuarios', { // Reemplaza con tu URL
+
+        const response = await fetch('http://127.0.0.1:8000/api/usuarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
