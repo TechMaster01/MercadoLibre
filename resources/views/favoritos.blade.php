@@ -10,13 +10,13 @@
 </head>
 <body>
 <div class="header">
-<div class="header-top">
-        <!-- Logo -->
+    <div class="header-top">
+  
         <div class="header-logo">
             <img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.22.5/mercadolibre/logo__large_plus.png" alt="Mercado Libre">
         </div>
 
-        <!-- barra de budsqueda -->
+    
         <div class="search-bar">
             <input type="text" class="form-control" placeholder="Buscar productos, marcas y más...">
         </div>
@@ -25,7 +25,7 @@
         </a>
     </div>
 
-    <!-- Navegación -->
+
     <div class="nav-bar">
         <a href="#">Categorías</a>
         <a href="#">Ofertas</a>
@@ -36,19 +36,19 @@
         <a href="{{ route('publicar') }}">Vender</a>
         <a href="{{ route('ayuda') }}">Ayuda</a>
 
-    <!-- opciones usuario -->
-    <div class="opciones-usuarios">
-        <a href="{{ route('perfil.usuario') }}">
-        <img src="{{ asset('images/user-icon.png') }}" alt="Usuario"> Agustin
-        </a>
-        <a href="{{ route('miscompras') }}">Mis compras</a>
-        <a href="{{ route('favoritos') }}">Favoritos</a>
-        <a href="#"><img src="{{ asset('images/cart-icon.png') }}" alt="Carrito"></a>
+
+        <div class="opciones-usuarios">
+            <a href="#">
+                <img src="user-icon.png" alt="Usuario"> <span id="user-name">Cargando...</span>
+            </a>
+            <a href="#">Mis compras</a>
+            <a href="#">Favoritos</a>
+            <a href="#"><img src="cart-icon.png" alt="Carrito"></a>
         </div>
     </div>
 </div>
 
-<!-- Contenido de la página de Favoritos -->
+
 <div class="container">
     <aside class="sidebar">
         <nav>
@@ -77,14 +77,14 @@
             </ul>
 
             <div class="tab-content" id="favoritesTabContent">
-                <!-- Contenido de Favoritos -->
+ 
                 <div class="tab-pane fade show active" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
                     <div id="favorites-container">
                         <p>Cargando favoritos...</p>
                     </div>
                 </div>
 
-                <!-- Contenido de Listas -->
+           
                 <div class="tab-pane fade" id="lists" role="tabpanel" aria-labelledby="lists-tab">
                     <div class="empty-lists">
                         <span class="list-icon">📋</span>
@@ -99,45 +99,64 @@
 </div>
 
 <script>
-    async function fetchFavorites() {
-        const favoritesContainer = document.getElementById('favorites-container');
-
+    <script>
+    // Función para obtener los favoritos
+    async function getFavorites() {
         try {
-            // Realiza una solicitud GET a la API
-            const response = await fetch(' '); // Cambia esta URL según tu API
+   
+            const response = await fetch('http://127.0.0.1:8000/api/favoritos');
+            
+            if (!response.ok) {
+                throw new Error('Error al obtener los favoritos');
+            }
+
+           
             const data = await response.json();
 
-            if (response.ok) {
-                if (data.favoritos && data.favoritos.length > 0) {
-                    // Renderiza los productos favoritos
-                    favoritesContainer.innerHTML = data.favoritos.map(producto => `
-                        <div class="favorite-item">
-                            <img src="${producto.imagen}" alt="${producto.nombre}" class="favorite-img">
-                            <div>
-                                <p><strong>${producto.nombre}</strong></p>
-                                <p>Precio: ${producto.precio}</p>
-                            </div>
-                        </div>
-                    `).join('');
-                } else {
-                    favoritesContainer.innerHTML = `
-                        <div class="empty-favorites">
-                            <span class="heart-icon">❤️</span>
-                            <p>No tienes productos favoritos.</p>
-                        </div>
-                    `;
-                }
-            } else {
-                favoritesContainer.innerHTML = `<p>Error: ${data.message || 'No se pudieron cargar los datos.'}</p>`;
-            }
+ 
+            renderFavorites(data);
         } catch (error) {
-            console.error('Error al obtener los favoritos:', error);
-            favoritesContainer.innerHTML = '<p>Error al conectar con el servidor.</p>';
+            console.error('Error:', error);
+            document.getElementById('favorites-container').innerHTML = '<p>Error al cargar los favoritos.</p>';
         }
     }
 
-    // Llama a la función al cargar la página
-    document.addEventListener('DOMContentLoaded', fetchFavorites);
+ 
+    function renderFavorites(data) {
+        const favoritesContainer = document.getElementById('favorites-container');
+        
+        if (data && data.items && data.items.length > 0) {
+          
+            favoritesContainer.innerHTML = '';
+
+            data.items.forEach(item => {
+                const favoriteHTML = `
+                    <div class="favorite-item">
+                        <img src="${item.thumbnail}" alt="${item.title}" class="favorite-item-image">
+                        <div class="favorite-item-details">
+                            <h5>${item.title}</h5>
+                            <p>Precio: $${item.price}</p>
+                            <button class="btn btn-danger" onclick="removeFavorite('${item.id}')">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+                favoritesContainer.innerHTML += favoriteHTML;
+            });
+        } else {
+            favoritesContainer.innerHTML = '<p>No tienes productos favoritos.</p>';
+        }
+    }
+
+    function removeFavorite(itemId) {
+        console.log('Eliminar favorito con ID:', itemId);
+        alert(`Producto con ID: ${itemId} eliminado de tus favoritos.`);
+        getFavorites();
+    }
+
+
+    document.addEventListener('DOMContentLoaded', getFavorites);
+</script>
+
 </script>
 </body>
 </html>

@@ -15,9 +15,13 @@
         <form id="loginForm">
             <input type="email" id="email" placeholder="Correo electrónico o usuario" required>
             <input type="password" id="password" placeholder="Contraseña" required>
+            <a href="http://127.0.0.1:8000/home">
             <button type="submit">Iniciar sesión</button>
+            </a>
             <div class="login-container2">
-                <button type="button">Crear Cuenta</button>
+            <a href="http://127.0.0.1:8000/registro">
+            <button type="button">Crear cuenta</button>
+            </a>
             </div>
             <a href="#">¿Olvidaste tu contraseña?</a>
         </form>

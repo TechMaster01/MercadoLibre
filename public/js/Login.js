@@ -23,7 +23,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
 
         if (response.ok) {
             //alert(`Inicio de sesión exitoso. Bienvenido, ${result.user.NOMBRES}`);
-            window.location.href = '../Home_Mercado_Libre/Home.html'; 
+            window.location.href = 'http://127.0.0.1:8000/home'; 
         } else {
             alert(`Error: ${result.message}`);
             //responseMessage.innerText = `Error: ${result.message}`;
