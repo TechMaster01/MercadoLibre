@@ -20,7 +20,7 @@ class UsuariosTableSeeder extends Seeder
 
         for ($i = 0; $i < 50; $i++) {
             DB::table('USUARIOS')->insert([
-                'NOMBRE_USUARIO' => $faker->firstName(),
+                'NOMBRES' => $faker->firstName(),
                 'APELLIDOS' => $faker->lastName, 
                 'EMAIL' => $faker->unique()->safeEmail,
                 'TELEFONO' => $faker->optional()->phoneNumber,
