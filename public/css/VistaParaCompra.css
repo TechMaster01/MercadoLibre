@@ -1,0 +1,42 @@
+.product-images .main-image img {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.thumbnail-images img {
+    width: 75px;
+    height: 75px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.product-price {
+    color: #ff5722;
+    font-size: 2rem;
+}
+
+.product-buttons button {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.seller-info {
+    margin-top: 2rem;
+}
+
+.card {
+    border: none;
+    text-align: center;
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: contain;
+}

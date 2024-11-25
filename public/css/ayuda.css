@@ -206,3 +206,112 @@ h1 {
     color: #3483fa;
     text-decoration: none;
 }
+
+
+
+/* Publicar nuevo producto */
+.main-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado del formulario */
+.form-header h2 {
+    font-size: 18px;
+    color: #999;
+}
+
+.form-header h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Contenedor del formulario */
+.form-container h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Información destacada */
+.info-box {
+    background-color: #eef6ff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.info-box span {
+    font-size: 18px;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+/* Grupo de campos */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Botones */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

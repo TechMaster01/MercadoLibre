@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/perfil.css')}}">
-    <title>Beneficiarios de la cuenta</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>Document</title>
 </head>
 <body>
 <div class="header">
+
 <div class="header-top">
         <!-- Logo -->
         <div class="header-logo">
@@ -44,29 +45,16 @@
         <a href="{{ route('favoritos') }}">Favoritos</a>
         <a href="#"><img src="{{ asset('images/cart-icon.png') }}" alt="Carrito"></a>
         </div>
-
     </div>
 </div>
 
-<div class="container-fluid">
-    <!-- Contenido central -->
-    <main>
-        
-            
-        <p class="direccion">Mi perfil > Seguridad</p>
-            <div Class="infoSeccion">
-            </div>
-        <div class="profile-options">
-            
-            
-            <div class="profile-option">
-                <p>Beneficiarios</p>
-                <button class=btnAgregarBeneficiarios><strong>Agregar</strong></button>
-            </div>
-            
-        </div>
-    </main>
+
+
+
+<div id="productos" class="productos-container">
+
 </div>
-<script src="{{ asset('js/app.js')}}"></script>
+    
 </body>
+<script src="{{ asset('js/ComprarProductos.js')}}"></script>
 </html>

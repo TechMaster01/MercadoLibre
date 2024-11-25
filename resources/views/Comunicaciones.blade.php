@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/perfil.css')}}">
-    <title>Tarjetas</title>
+    <title>Comunicaciones</title>
 </head>
 <body>
 <div class="header">
@@ -79,6 +79,9 @@
                     <li>Vehículos e inmuebles</li>
                 </ul>
             </li>
+            <li>Créditos</li>
+            <li>Suscripciones</li>
+            <li>Bio libre</li>
             <li>Facturación</li>
             <li>Mi perfil</li>
             <li class="dropdown">Configuración
@@ -93,16 +96,21 @@
     <main>
         
             
+        <p class="direccion">Mi perfil > Comunicaciones</p>
             <div Class="infoSeccion">
+                <h1>Elige el canal a configurar</h1>
             </div>
-            
-        <div class="profile-options">
-        <h2 Style="font-size: 17px; font-weight: bold;">Tarjetas</h2>
-
-            
+        <div class="profile-options">            
             <div class="profile-option">
-                <p>Aquí va una tarjeta guardada</p>               
+                <p>Notificaciones</p>
             </div>
+            <div class="profile-option">
+                <p>E-Mail</p>
+            </div>
+            <div class="profile-option">
+                <p>SMS y WhatsApp</p>
+            </div>
+            
         </div>
     </main>
 </div>
