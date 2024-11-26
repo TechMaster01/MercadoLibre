@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
     $this->call(DireccionesUsuarioTableSeeder::class);
     $this->call(BilleteraDigitalTableSeeder::class);
     $this->call(TarjetasTableSeeder::class);
+    $this->call(ComentariosTableSeeder::class);
+    $this->call(AutosSeeder::class);
+    $this->call(PreguntasClienteSeeder::class);
+    
     }
 
 }
