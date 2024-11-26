@@ -12,7 +12,7 @@ class Inmuebles extends Model
     protected $table = 'INMUEBLES';
 
     protected $fillable = [
-        'TIPO_INMUEBLES',
+        'TIPO_INMUEBLE',
         'TITULO',
         'FECHA_PUBLICACION',
         'AUTOR_PUBLICACION',

@@ -13,7 +13,7 @@ class inmueblesController extends Controller
     public function index(){
         $inmuebles = Inmuebles::All();
 
-        if($inmuebles->empty()){
+        if($inmuebles->isEmpty()){
             return response()->json(['message' => 'No hay registros'], 404);
         }
 
@@ -42,7 +42,7 @@ class inmueblesController extends Controller
 
     public function store(Request $request) {
         $Validator = Validator::make($request->all(), [
-            'TIPO_INMUEBLES' => 'required|string|max:255',
+            'TIPO_INMUEBLE' => 'required|string|max:255',
             'TITULO' => 'required|string|max:255',
             'FECHA_PUBLICACION' => 'required|date',
             'AUTOR_PUBLICACION' => 'required|string|max:255',
@@ -68,7 +68,7 @@ class inmueblesController extends Controller
         }
     
         $inmueble = Inmuebles::create([
-            'TIPO_INMUEBLES' => $request->TIPO_INMUEBLES,
+            'TIPO_INMUEBLE' => $request->TIPO_INMUEBLE,
             'TITULO' => $request->TITULO,
             'FECHA_PUBLICACION' => $request->FECHA_PUBLICACION,
             'AUTOR_PUBLICACION' => $request->AUTOR_PUBLICACION,
@@ -113,7 +113,7 @@ class inmueblesController extends Controller
         }
     
         $Validator = Validator::make($request->all(), [
-            'TIPO_INMUEBLES' => 'required|string|max:255',
+            'TIPO_INMUEBLE' => 'required|string|max:255',
             'TITULO' => 'required|string|max:255',
             'FECHA_PUBLICACION' => 'required|date',
             'AUTOR_PUBLICACION' => 'required|string|max:255',
@@ -138,7 +138,7 @@ class inmueblesController extends Controller
             return response()->json($Data, 400);
         }
     
-        $inmueble->TIPO_INMUEBLES = $request->TIPO_INMUEBLES;
+        $inmueble->TIPO_INMUEBLE = $request->TIPO_INMUEBLE;
         $inmueble->TITULO = $request->TITULO;
         $inmueble->FECHA_PUBLICACION = $request->FECHA_PUBLICACION;
         $inmueble->AUTOR_PUBLICACION = $request->AUTOR_PUBLICACION;
