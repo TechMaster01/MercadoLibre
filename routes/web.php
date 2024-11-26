@@ -167,3 +167,6 @@ Route::get('/Comunicaciones', function () {
     return view('Comunicaciones');
 })->name('Comunicaciones');
 
+Route::get('/metodosdepago', function () {
+    return view('MetodosDePago');
+});

@@ -1,0 +1,56 @@
+
+.banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #ffe600;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.banner img {
+    height: 30px;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.resumen-compra {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    color: #333;
+}
+
+.resumen-compra h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.btn-primary {
+    background-color: #3483fa;
+    border-color: #3483fa;
+}
+
+.btn-primary:hover {
+    background-color: #2968c8;
+    border-color: #2968c8;
+}
