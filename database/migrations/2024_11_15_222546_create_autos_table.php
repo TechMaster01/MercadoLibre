@@ -16,7 +16,7 @@ class CreateAutosTable extends Migration
             $table->date('FECHA_PUBLICACION'); 
             $table->decimal('PRECIO', 10, 2);
             $table->boolean('FINANCIADO')->default(false); 
-            $table->year('ANO_VEHICULO'); 
+            $table->year('ANIO_VEHICULO'); 
             $table->integer('KILOMETRAJE')->unsigned(); 
             $table->text('PREGUNTAS_CLIENTE')->nullable(); 
             $table->text('CARACTERISTICAS')->nullable(); 

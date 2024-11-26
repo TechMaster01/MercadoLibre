@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\api\autosController;
 use App\Http\Controllers\api\billeteraController;
 use App\Http\Controllers\api\categoriasController;
 use App\Http\Controllers\api\direccionesController;
 use App\Http\Controllers\api\favoritosController;
 use App\Http\Controllers\api\filtroController;
+use App\Http\Controllers\api\inmueblesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -89,6 +91,19 @@ Route::delete('/tarjetas/{id}', [tarjetasController::class, 'destroy']);
 
 //Rutas para carrito
 
+//Rutas para autos
+Route::get('/autos', [autosController::class, 'index']);
+Route::get('/autos/{id}', [autosController::class, 'show']);
+Route::post('/autos', [autosController::class, 'store']);
+Route::put('/autos/{id}', [autosController::class, 'update']);
+Route::delete('/autos/{id}', [autosController::class, 'destroy']);
+
+//Rutas para inmuebles
+Route::get('/inmuebles', [inmueblesController::class, 'index']);
+Route::get('/inmuebles/{id}', [inmueblesController::class, 'show']);
+Route::post('/inmuebles', [inmueblesController::class, 'store']);
+Route::put('/inmuebles/{id}', [inmueblesController::class, 'update']);
+Route::delete('/inmuebles/{id}', [inmueblesController::class, 'destroy']);
 
 //Rutas para los filtros
 Route::get('/FilterProductsByCategory/{id}', [filtroController::class, 'FilterProductsByCategory']);

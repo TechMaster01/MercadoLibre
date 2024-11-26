@@ -9,7 +9,7 @@ class Inmuebles extends Model
 {
     use HasFactory;
 
-    protected $table = 'COMENTARIOS';
+    protected $table = 'INMUEBLES';
 
     protected $fillable = [
         'TIPO_INMUEBLES',
