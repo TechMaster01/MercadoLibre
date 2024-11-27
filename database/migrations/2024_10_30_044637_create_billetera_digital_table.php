@@ -13,7 +13,7 @@ return new class extends Migration
     {
     Schema::create('BILLETERA_DIGITAL', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('ID_USUARIO')->constrained('USUARIOS');
+        $table->foreignId('ID_USUARIO')->constrained('USUARIOS')->onDelete('cascade');
         $table->decimal('SALDO', 10, 2)->default(0.00);
         $table->string('TIPO_MONEDA', 10)->default('MXN');
         $table->timestamps();

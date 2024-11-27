@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('TARJETAS', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ID_BILLETERA')->constrained('BILLETERA_DIGITAL');
+            $table->foreignId('ID_BILLETERA')->constrained('BILLETERA_DIGITAL')->onDelete('cascade');
             $table->string('NUMERO_TARJETA')->unique();
             $table->text('NOMBRE_TITULAR');
             $table->string('FECHA_EXPIRACION');

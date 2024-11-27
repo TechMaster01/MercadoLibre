@@ -21,8 +21,8 @@ class CreateProductosTable extends Migration
             $table->text('RESEÑAS')->nullable();
             $table->integer('STOCK')->default(0);
             $table->string('IMAGEN')->nullable();
-            $table->foreignId('ID_VENDEDOR')->constrained('USUARIOS');
-            $table->foreignId('ID_CATEGORIA')->nullable()->constrained('CATEGORIAS');
+            $table->foreignId('ID_VENDEDOR')->constrained('USUARIOS')->onDelete('cascade');
+            $table->foreignId('ID_CATEGORIA')->nullable()->constrained('CATEGORIAS')->onDelete('cascade');
             $table->string('COLORES_DISPONIBLES')->nullable();
             $table->enum('TIPO_ENVIO', ['estándar', 'express', 'internacional'])->default('estándar');
             $table->date('FECHA_ENTREGA')->nullable(); 

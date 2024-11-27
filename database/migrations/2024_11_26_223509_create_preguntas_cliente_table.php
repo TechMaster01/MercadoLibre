@@ -10,10 +10,10 @@ class CreatePreguntasClienteTable extends Migration
     {
         Schema::create('PREGUNTAS_CLIENTE', function (Blueprint $table) {
             $table->id(); 
-            $table->foreignId('AUTO_ID')->constrained('AUTOS')->onDelete('cascade'); 
-            $table->foreignId('USUARIO_ID')->constrained('USUARIOS')->onDelete('cascade'); 
-            $table->text('PREGUNTA'); 
-            $table->text('RESPUESTA')->nullable(); 
+            $table->foreignId('ID_USUARIO')->constrained('USUARIOS')->onDelete('cascade');
+            $table->foreignId('ID_PRODUCTO')->constrained('PRODUCTOS')->onDelete('cascade');
+            $table->foreignId('ID_AUTO')->constrained('AUTOS')->onDelete('cascade'); 
+            $table->text('PREGUNTA');
             $table->timestamps(); 
         });
     }

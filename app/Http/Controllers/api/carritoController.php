@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Carrito;
+use App\Models\Carrito_Productos;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Support\Facades\Validator;
@@ -16,11 +16,11 @@ class carritoController extends Controller
     }
 
     public function show($id){
-        $Carrito = Carrito::where('ID_CARRITO', $id)->get();
+        $Carrito = Carrito_Productos::where('ID_CARRITO', $id)->get();
 
         if(!$Carrito){
             return response()->json([
-                'message' => 'El no existe',
+                'message' => 'El carrito no existe',
                 'status' => 404
             ], 404);
         }
